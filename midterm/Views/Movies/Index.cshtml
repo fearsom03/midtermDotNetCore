@@ -1,0 +1,66 @@
+﻿@model IEnumerable<midterm.models.Movie>
+
+@{
+    ViewData["Title"] = "Movies";
+}
+
+<partial name="_Search" />
+
+<h1>Index</h1>
+Hello world
+
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.postImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discriptoin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.durationInMinutes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ratings)
+            </th>
+           
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    <img src="@item.postImageUrl" asp-append-version="true">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.discriptoin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.durationInMinutes)
+                </td>
+                <td>
+
+                    @Html.DisplayFor(modelItem => item.ratings)
+
+                    @*@foreach (var ratingKuka in item.ratings)
+        {
+        @Html.DisplayFor(modelItem => ratingKuka.authorName)
+        @Html.DisplayFor(modelItem => ratingKuka.comment)
+        @Html.DisplayFor(modelItem => ratingKuka.rating)
+        }*@
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
